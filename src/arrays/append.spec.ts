@@ -30,15 +30,15 @@ describe('append', () => {
         const comparator = (a: Obj, b: Obj): boolean => a.id === b.id;
 
         it('should add item to the end of the array using custom comparator', () => {
-            const array: {id: string}[] = [obj2, obj3];
-            const result = append<Obj>({id: 'dog'}, array, comparator);
+            const array: Obj[] = [obj2, obj3];
+            const result = append<Obj>({id: value1}, array, comparator);
             expect(result).toEqual([obj2, obj3, obj1]);
             expect(result === array).toEqual(false);
         });
 
         it('if item is already in array, should ignore and return original array using custom comparator', () => {
-            const array: {id: string}[] = [obj1, obj2, obj3];
-            const result = append<Obj>({id: 'dog'}, array, comparator);
+            const array: Obj[] = [obj1, obj2, obj3];
+            const result = append<Obj>({id: value1}, array, comparator);
             expect(result).toEqual([obj1, obj2, obj3]);
             expect(result === array).toEqual(true);
         });

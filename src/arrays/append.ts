@@ -1,4 +1,5 @@
 import {Comparator} from '../types';
+import {contains} from './contains';
 
 /**
  * Adds an item to the end of an array if the item is not already in the array.
@@ -10,8 +11,7 @@ export function append<T>(
     array: T[],
     comparator: Comparator<T> = (a, b) => a === b
 ): T[] {
-    const found = array.some((x) => comparator(value, x));
-    if (!found) {
+    if (!contains<T>(value, array, comparator)) {
         return [...array, value];
     }
     return array;
