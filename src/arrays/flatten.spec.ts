@@ -7,7 +7,7 @@ describe('flatten', () => {
         expect(result).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
     });
     it('should work on empty arrays', () => {
-        const array = [];
+        const array: number[] = [];
         const result = flatten<number>(array);
         expect(result).toEqual([]);
     });

@@ -1,4 +1,5 @@
 import {Comparator} from '../types';
+import {clamp} from '../numbers/clamp';
 
 /**
  * Moves the item in an array in positive or negative direction
@@ -10,7 +11,7 @@ export function move<T>(
     comparator: Comparator<T> = (a, b) => a === b
 ): T[] {
     const index = array.findIndex((x) => comparator(value, x));
-    const nextIndex = Math.min(Math.max(index + distance, 0), array.length);
+    const nextIndex = clamp(index + distance, 0, array.length);
     if (index < 0 || distance === 0) {
         return array;
     }
