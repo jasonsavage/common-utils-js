@@ -1,10 +1,10 @@
+import {Comparator} from '../types';
+
 /**
  * Adds an item to the end of an array if the item is not already in the array.
  * If it is, the original array is returned.
  * NOTE: default compare based on reference to object in memory.
  */
-import {Comparator} from '../types';
-
 export function append<T>(
     value: T,
     array: T[],
